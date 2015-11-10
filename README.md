@@ -2,13 +2,13 @@
 
 - Proyecto para inicializar usando usando las siguientes herramientas.
 
-* PREPROCESADORES
+PREPROCESADORES
 * **Jade** Preprocesador de html
 * **Stylus** Preprocesador de css
 
-* TAREAS
+TAREAS
 * **grunt** Realiza tareas programadas
-* * *browserSync*
-* * *uglify*
-* * *jadephp*
-* * *php*
+* *browserSync*
+* *uglify*
+* *jadephp*
+* *php*
