@@ -17,7 +17,8 @@ module.exports = function (grunt) {
       options: {
         mangle: false,
         compress: {
-            drop_console: true
+          drop_console: false
+          //quitar console.log
         }
       },
       js: {
@@ -36,7 +37,7 @@ module.exports = function (grunt) {
           filename: 'base'
         },
         files: {
-          'www/index.php': 'jade/index.jade'
+          'www/index.html': 'jade/index.jade'
         }
       }
     },
@@ -127,12 +128,31 @@ module.exports = function (grunt) {
           }
         }
       }
+    },
+    ftp_push: {
+      principal: {
+        options: {
+          host: 'dominio.com',
+          dest: '/web/', //a donde subirá
+          username: 'usuario',
+          password: 'contraseña',
+          debug: false // Show JSFTP Debugging information
+        },
+        files: [
+          {
+            expand: true,
+            cwd: './www', //desde donde
+            src: ['**'] // un solo (*) envia solo archivos dos (**) envia archivos y carpetas
+          }
+        ]
+      }
     }
   });
 
   //Cargamos todos los tasks declarados en package.json
   require('load-grunt-tasks')(grunt);
   // Defino las tareas.
-  grunt.registerTask('default', ['stylus', 'uglify', 'jadephp', 'notify', 'php:dist', 'browserSync', 'watch']);
+  grunt.registerTask('default', ['stylus', 'uglify', 'jadephp', 'notify', 'browserSync', 'watch']);
   //grunt.registerTask('default', ['stylus', 'uglify', 'jadephp', 'notify', 'php:dist', 'browserSync', 'watch']);
+  grunt.registerTask('ftp', ['ftp_push:principal']);
 };

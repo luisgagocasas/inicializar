@@ -12,6 +12,7 @@
     "grunt-contrib-stylus": "*",
     "grunt-contrib-uglify": "*",
     "grunt-contrib-watch": "*",
+    "grunt-ftp-push": "*",
     "grunt-jade-php": "*",
     "grunt-notify": "*",
     "grunt-php": "*",
